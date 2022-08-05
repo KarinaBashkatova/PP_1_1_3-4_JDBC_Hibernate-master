@@ -16,16 +16,18 @@ import java.util.Properties;
 public class Util {
 
     private static SessionFactory sessionFactory;
+    final static String URL = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true" +  "&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    final static String USERNAME = "root";
+    final static String PASSWORD = "Karina1995";
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true" +
-                        "&useLegacyDatetimeCode=false&serverTimezone=UTC");
-                settings.put(Environment.USER, "root");
-                settings.put(Environment.PASS, "Karina1995");
+                settings.put(Environment.URL, URL);
+                settings.put(Environment.USER, USERNAME);
+                settings.put(Environment.PASS, PASSWORD);
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 
                 settings.put(Environment.SHOW_SQL, "true");
@@ -50,9 +52,7 @@ public class Util {
     }
 
 
-        final static String URL = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true" +  "&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        final static String USERNAME = "root";
-        final static String PASSWORD = "Karina1995";
+
 
 
        public static Connection getConnection() {
